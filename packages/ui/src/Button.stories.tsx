@@ -34,13 +34,14 @@ export const Default: StoryFn<typeof Button> = Template.bind({});
 export const Secondary: StoryFn<typeof Button> = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
-  children: 'Secondary Button',
+  children: 'Secondary Button'
 };
 
 export const Outline: StoryFn<typeof Button> = Template.bind({});
 Outline.args = {
   variant: 'outline',
   children: 'Outline Button',
+  className: 'border-pink-400'
 };
 
 export const Ghost: StoryFn<typeof Button> = Template.bind({});

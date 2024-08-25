@@ -8,7 +8,7 @@ export default {
 } as Meta<typeof Card>;
 
 const Template: StoryFn<typeof Card> = (args) => (
-  <Card className="w-[350px]" {...args}>
+  <Card className="w-[350px] border-pink-400" {...args}>
     <CardHeader>
       <CardTitle>Card Title</CardTitle>
       <CardDescription>Card Description</CardDescription>
@@ -26,7 +26,7 @@ export const Default: StoryFn<typeof Card> = Template.bind({});
 Default.args = {};
 
 export const WithCustomContent: StoryFn<typeof Card> = () => (
-  <Card className="w-[350px]">
+  <Card className="w-[350px] border-pink-400">
     <CardHeader>
       <CardTitle>Notification</CardTitle>
       <CardDescription>You have a new message</CardDescription>
@@ -43,7 +43,7 @@ export const WithCustomContent: StoryFn<typeof Card> = () => (
 
 export const ExpandableCardStory: StoryFn<typeof ExpandableCard> = () => (
   <ExpandableCard
-    className="w-[350px]"
+    className="w-[350px] border-pink-400"
     imageUrl="https://japan-figure.com/cdn/shop/articles/kuromi_800x800.jpg?v=1702464902"
     title="Kuromi"
     description="Sanrio's mischievous bunny"
