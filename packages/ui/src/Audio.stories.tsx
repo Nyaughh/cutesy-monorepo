@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, StoryFn } from "@storybook/react";
 import Audio from "./components/ui/audio";
 
@@ -13,7 +12,6 @@ const meta: Meta<typeof Audio> = {
     onPause: { action: 'paused' },
     onEnded: { action: 'ended' },
     onTimeUpdate: { action: 'time updated' },
-    onVolumeChange: { action: 'volume changed' },
   },
 };
 

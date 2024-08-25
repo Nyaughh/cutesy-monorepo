@@ -36,7 +36,6 @@ export default function Audio({
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -56,10 +55,9 @@ export default function Audio({
     const audioElement = audioRef.current;
     if (audioElement) {
       audioElement.muted = isMuted;
-      audioElement.volume = volume;
-      onVolumeChange?.(isMuted ? 0 : volume);
+      onVolumeChange?.(isMuted ? 0 : 1);
     }
-  }, [isMuted, volume, onVolumeChange]);
+  }, [isMuted, onVolumeChange]);
 
   const handleTimeUpdate = () => {
     if (audioRef.current) {
@@ -78,10 +76,6 @@ export default function Audio({
     if (audioRef.current) {
       audioRef.current.currentTime = (value[0] / 100) * duration;
     }
-  };
-
-  const handleVolumeChange = (value: number[]) => {
-    setVolume(value[0] / 100);
   };
 
   const handleEnded = () => {
@@ -137,18 +131,6 @@ export default function Audio({
         </div>
         <div className="text-[#FF69B4] text-xs">
           {formatTime(currentTime)} / {formatTime(duration)}
-        </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <div className="flex-1">
-          <Slider
-            className="[&>span:first-child]:h-1 [&>span:first-child]:bg-[#FFB6C1] [&_[role=slider]]:bg-[#FF69B4] [&_[role=slider]]:w-3 [&_[role=slider]]:h-3 [&_[role=slider]]:border-0 [&>span:first-child_span]:bg-[#FF69B4] [&_[role=slider]:focus-visible]:ring-0 [&_[role=slider]:focus-visible]:ring-offset-0 [&_[role=slider]:focus-visible]:scale-105 [&_[role=slider]:focus-visible]:transition-transform"
-            value={[volume * 100]}
-            onValueChange={handleVolumeChange}
-          />
-        </div>
-        <div className="text-[#FF69B4] text-xs">
-          {Math.round(volume * 100)}%
         </div>
       </div>
     </div>
