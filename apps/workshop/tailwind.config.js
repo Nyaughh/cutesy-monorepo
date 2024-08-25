@@ -1,0 +1,1 @@
+module.exports = require("@cutesy/ui/tailwind.config")("workshop")
