@@ -148,10 +148,7 @@ const ExpandableCard = React.forwardRef<
               transitionClass,
               isExpanded ? "opacity-100 max-h-[1000px]" : "opacity-0 max-h-0"
             )}>
-              <CardContent className="px-3 pt-1">{children}</CardContent>
-              <CardFooter className="px-3 pt-1">
-                {/* Add footer content here if needed */}
-              </CardFooter>
+              {isExpanded ? <CardContent className="px-3 pt-1">{children}</CardContent> : null}
             </div>
           </div>
         </div>
